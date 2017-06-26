@@ -272,6 +272,10 @@ http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/managing-users.html
 
         restart apache
             sudo service apache2 restart
+            
+10. go to http://52.43.165.216/ in your browser and enjoy!
+
+Questions may be addressed to kenm@eurekapayments.com
 
 
 
