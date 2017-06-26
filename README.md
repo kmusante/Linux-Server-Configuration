@@ -29,8 +29,14 @@ Here are the steps Taken
         Custom	        TCP	      2200	
   
     c.  Established static IP 52.43.165.216
+    
+2.  From local terminal generate linuxProject keys
+    
+    - ssh-keygen and place in local file.  Establish pw for access.  To be pasted for Udacity Grader separately
 
-2.  Updated Packages and added user 'grader'  See refernce notes found here:  http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/managing-users.html
+3.  Updated Packages and added user 'grader'  See refernce notes found here:
+https://www.digitalocean.com/community/tutorials/how-to-add-and-delete-users-on-an-ubuntu-14-04-vps and
+http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/managing-users.html
 
     a.   - sudo apt-get update
     
@@ -52,14 +58,13 @@ Here are the steps Taken
     i.   -chmod 700 .ssh
     
     j.   -touch .ssh/authorized_keys
-    
-    
-    h.  once user grader created, login to grader via -
+        
+    k.  once user grader created, login to grader via -
             ssh -i linuxProject grader@52.43.165.216
     
-    i.  Unless otherwise specified all future actions taken as user 'grader'
+    l.  Unless otherwise specified all future actions taken as user 'grader'
     
-3.  Establish Firewalls (most of this is redundant as they were set in Lightsail)
+4.  Establish Firewalls (most of this is redundant as they were set in Lightsail)
 
     a.  -sudo ufw default deny incoming
     
@@ -75,7 +80,28 @@ Here are the steps Taken
     
     g.  -sudo ufw enable
     
-4.  Deploy Flask Application--relied heavily on this document (which was referenced throughout the forums):  https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps
+
+5.  Install Apache2 as outlined in course material
+    
+    -sudo apt-get install apache2
+    
+    -sudo apt-get install libapache2-mod-wsgi
+    
+    -sudo nano /etc/apache2/sites-enabled/000 and update the following line at the end of the <VirtualHost *:80> block, right before the closing </VirtualHost> line: WSGIScriptAlias / /var/www/html/myapp.wsgi  
+            NOTE:  this file can be upated with -sudo nano /var/www/html/myapp.wsgi as needed.  I replaced with the following code:
+            
+            def application(environ, start_response):
+            status = '200 OK'
+            output = 'Hello World!'
+
+            response_headers = [('Content-type', 'text/plain'), ('Content-Length', str(len(output)))]
+            start_response(status, response_headers)
+
+            return [output]
+    
+    -restart Apache -sudo apache2ctl restart 
+
+6.  Deploy Flask Application--relied heavily on this document (which was referenced throughout the forums):  https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps
 
     a.  install and enable mod_wsgi
             -sudo apt-get install libapache2-mod-wsgi python-dev
@@ -142,6 +168,10 @@ Here are the steps Taken
         -sudo a2ensite FlaskApp
         
     e.  Create the .wsgi file
+    
+        -cd /var/www/FlaskApp
+        
+        -sudo nano flaskapp.wsgi 
     
         
 
