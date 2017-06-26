@@ -94,7 +94,12 @@ Here are the steps Taken
                     return "Hello, I love Digital Ocean!!!!"
                 if __name__ == "__main__":
                     app.run()
-
+        Save file and close
+        
+    c.  Install Flask
+        
+        -sudo pip install virtualenv
+        -sudo virtualenv venv
     
 
 
