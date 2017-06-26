@@ -30,7 +30,7 @@ Here are the steps Taken
   
     c.  Established static IP 52.43.165.216
 
-2.  Updated Packages and added user 'grader'
+2.  Updated Packages and added user 'grader'  See refernce notes found here:  http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/managing-users.html
 
     a.   - sudo apt-get update
     
@@ -42,12 +42,22 @@ Here are the steps Taken
     
     e.   -sudo adduser grader
                 -set pw
-    f.   -sudo visudo and added grader to ALL=(ALL: ALL) ALL
+                
+    f.   -sudo su - grader   
     
-    g.  once user grader created, login to grader via -
+    g.   -sudo visudo and added grader to ALL=(ALL: ALL) ALL
+    
+    h.   -mkdir .ssh
+    
+    i.   -chmod 700 .ssh
+    
+    j.   -touch .ssh/authorized_keys
+    
+    
+    h.  once user grader created, login to grader via -
             ssh -i linuxProject grader@52.43.165.216
     
-    h.  Unless otherwise specified all future actions taken as user 'grader'
+    i.  Unless otherwise specified all future actions taken as user 'grader'
     
 3.  Establish Firewalls (most of this is redundant as they were set in Lightsail)
 
