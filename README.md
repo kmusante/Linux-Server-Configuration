@@ -31,19 +31,19 @@ Here are the steps Taken
     c.  Established static IP 52.43.165.216
 
 2.  Updated Packages and added user 'grader'
-    a. sudo apt-get update
+    a.  -sudo apt-get update
     
-    b.  sudo apt-get upgrade
+    b.  -sudo apt-get upgrade
     
-    c.  sudo apt-get autoremove
+    c.  -sudo apt-get autoremove
     
-    d.  sudo apt-get install finger
+    d.  -sudo apt-get install finger
     
-    e.  sudo adduser grader
+    e.  -sudo adduser grader
             -set pw
-    f.  sudo visudo and added grader to ALL=(ALL: ALL) ALL
+    f.  -sudo visudo and added grader to ALL=(ALL: ALL) ALL
     
-    g.  once user grader created, login to grader via ssh -i linuxProject grader@52.43.165.216
+    g.  once user grader created, login to grader via -ssh -i linuxProject grader@52.43.165.216
     
     h.  Unless otherwise specified all future actions taken as user 'grader'
     
