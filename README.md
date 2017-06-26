@@ -224,6 +224,19 @@ http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/managing-users.html
         -sudo pip install oauth2client
         
         -sudo pip install requests
+        
+9.  Git set up
+
+    -cd /var/www/FlaskApp
+    
+    - sudo git clone https://github.com/kmusante/salesreps2.git
+    
+    -pull up .wsgi file and update with new file from salesreps2 repository
+        
+        -sudo nano flaskappsalesrep.wsgi
+
+    
+
     
         - 
     
