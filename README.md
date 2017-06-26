@@ -41,6 +41,8 @@ Here are the steps Taken
             set pw
     f.  sudo visudo and added grader to ALL=(ALL: ALL) ALL
     
+    g.  once user grader created, login to grader via ssh -i linuxProject grader@52.43.165.216
+    
 3.  Establish Firewalls (most of this is redundant as they were set in Lightsail)
 
     a.  sudo ufw default deny incoming
