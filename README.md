@@ -28,7 +28,7 @@ Here are the steps Taken
   
     c.  Established static IP 52.43.165.216
 
-2.  Updated Packages
+2.  Updated Packages and added user 'grader'
     a. sudo apt-get update
     
     b.  sudo apt-get upgrade
@@ -36,6 +36,26 @@ Here are the steps Taken
     c.  sudo apt-get autoremove
     
     d.  sudo apt-get install finger
+    
+    e.  sudo adduser grader
+            set pw
+    f.  sudo visudo and added grader to ALL=(ALL: ALL) ALL
+    
+3.  Establish Firewalls (most of this is redundant as they were set in Lightsail)
+
+    a.  sudo ufw default deny incoming
+    
+    b.  sudo ufw default allow outgoing
+    
+    c.  sudo ufw allow ssh
+    
+    d.  sudo ufw allow 2200/tcp
+    
+    e.  sudo ufw allow 22/tcp
+    
+    f.  sudo ufw allow www
+    
+    g.  sudo ufw enable
     
     
 
