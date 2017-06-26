@@ -172,6 +172,25 @@ http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/managing-users.html
         -cd /var/www/FlaskApp
         
         -sudo nano flaskapp.wsgi 
+        
+        Add the following code to the file:
+                #!/usr/bin/python
+                import sys
+                import logging
+                logging.basicConfig(stream=sys.stderr)
+                sys.path.insert(0,"/var/www/FlaskApp/")
+
+                from FlaskApp import app as application
+                application.secret_key = 'Add your secret key'
+                
+                Restart Apache      -sudo service apache2 restart 
+                
+7.  Update Github repository found at https://github.com/kmusante/salesreps2. Specifically update these files:
+        -salesrep2.py:  updated line 24 to: engine = create_engine('postgresql://catalog:catalog@localhost/catalog')
+        
+        -salesrep2_database.py:  updated line 66 to:  engine = create_engine('postgresql://catalog:catalog@localhost/catalog')
+        
+        -client_secrets.json:  updated end of line to add:  "http://52.43.165.216"
     
         
 
