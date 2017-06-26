@@ -32,7 +32,8 @@ Here are the steps Taken
 
 2.  Updated Packages and added user 'grader'
 
-    a.      - sudo apt-get update
+    a.      
+    - sudo apt-get update
     
     b.      -sudo apt-get upgrade
     
