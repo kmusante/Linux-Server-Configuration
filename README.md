@@ -100,6 +100,39 @@ Here are the steps Taken
         
         -sudo pip install virtualenv
         -sudo virtualenv venv
+        -source venv/bin/activate
+        -sudo pip install Flask
+        -sudo python __init__.py
+        
+    d.  Configure and enable new virtual host
     
+        -sudo nano /etc/apache2/sites-available/FlaskApp.conf
+        
+        Add in the following code:
+            
+            <VirtualHost *:80>
+                ServerName 52.43.165.216
+                ServerAdmin admin@mywebsite.com
+                WSGIScriptAlias / /var/www/FlaskApp/flaskapp.wsgi
+                <Directory /var/www/FlaskApp/FlaskApp/>
+                    Order allow,deny
+                    Allow from all
+                </Directory>
+                Alias /static /var/www/FlaskApp/FlaskApp/static
+                <Directory /var/www/FlaskApp/FlaskApp/static/>
+                    Order allow,deny
+                    Allow from all
+                </Directory>
+                ErrorLog ${APACHE_LOG_DIR}/error.log
+                LogLevel warn
+                CustomLog ${APACHE_LOG_DIR}/access.log combined
+            </VirtualHost>
+    save file and close
+    
+        -sudo a2ensite FlaskApp
+        
+    e.  Create the .wsgi file
+    
+        
 
 
