@@ -14,7 +14,7 @@ Here are the steps Taken
     
         SSH	        TCP	      22	
         
-        HTTP	      TCP	      80	
+        HTTP	    TCP	      80	
         
         Custom	    UDP	      123	
         
