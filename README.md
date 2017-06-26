@@ -32,37 +32,38 @@ Here are the steps Taken
 
 2.  Updated Packages and added user 'grader'
 
-    - sudo apt-get update
+    a.   - sudo apt-get update
     
-    b.      -sudo apt-get upgrade
+    b.   -sudo apt-get upgrade
     
-    c.      -sudo apt-get autoremove
+    c.   -sudo apt-get autoremove
     
-    d.      -sudo apt-get install finger
+    d.   -sudo apt-get install finger
     
-    e.      -sudo adduser grader
+    e.   -sudo adduser grader
                 -set pw
-    f.      -sudo visudo and added grader to ALL=(ALL: ALL) ALL
+    f.   -sudo visudo and added grader to ALL=(ALL: ALL) ALL
     
-    g.  once user grader created, login to grader via -ssh -i linuxProject grader@52.43.165.216
+    g.  once user grader created, login to grader via -
+            ssh -i linuxProject grader@52.43.165.216
     
     h.  Unless otherwise specified all future actions taken as user 'grader'
     
 3.  Establish Firewalls (most of this is redundant as they were set in Lightsail)
 
-    a.  sudo ufw default deny incoming
+    a.  -sudo ufw default deny incoming
     
-    b.  sudo ufw default allow outgoing
+    b.  -sudo ufw default allow outgoing
     
-    c.  sudo ufw allow ssh
+    c.  -sudo ufw allow ssh
     
-    d.  sudo ufw allow 2200/tcp
+    d.  -sudo ufw allow 2200/tcp
     
-    e.  sudo ufw allow 22/tcp
+    e.  -sudo ufw allow 22/tcp
     
-    f.  sudo ufw allow www
+    f.  -sudo ufw allow www
     
-    g.  sudo ufw enable
+    g.  -sudo ufw enable
     
 4.  Deploy Flask Application--relied heavily on this document (which was referenced throughout the forums):  https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps
 
