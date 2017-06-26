@@ -57,12 +57,15 @@ http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/managing-users.html
     
     i.   -chmod 700 .ssh
     
-    j.   -touch .ssh/authorized_keys
+    j.   -chmod 644 .ssh/authorized_keys
+
+  
+    k.   -touch .ssh/authorized_keys
         
-    k.  once user grader created, login to grader via -
+    l.  once user grader created, login to grader via -
             ssh -i linuxProject grader@52.43.165.216
     
-    l.  Unless otherwise specified all future actions taken as user 'grader'
+    m.  Unless otherwise specified all future actions taken as user 'grader'
     
 4.  Establish Firewalls (most of this is redundant as they were set in Lightsail)
 
@@ -193,8 +196,9 @@ http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/managing-users.html
         
         -client_secrets.json:  updated end of line to add:  "http://52.43.165.216"
         
-8.  Install PostgreSQL
-    Notes:  https://www.digitalocean.com/community/tutorials/how-to-secure-postgresql-on-an-ubuntu-vps
+8.  Install PostgreSQL and needed apps
+    Notes:  https://www.digitalocean.com/community/tutorials/how-to-secure-postgresql-on-an-ubuntu-vps and
+    https://help.ubuntu.com/community/PostgreSQL#Basic_Server_Setup
     
         -sudo apt-get install postgresql postgresql-contrib
         -sudo su - postgres
@@ -210,6 +214,16 @@ http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/managing-users.html
         Verify remote connections are blocked with command:
         
         -sudo nano /etc/postgresql/9.1/main/pg_hba.conf
+        
+        -sudo pip install sqlalchemy
+        
+        -sudo pip install pyschopg2
+        
+        -sudo pip install flask
+        
+        -sudo pip install oauth2client
+        
+        -sudo pip install requests
     
         - 
     
