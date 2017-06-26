@@ -11,6 +11,8 @@ pw for user catalog='catalog'
 
 In addition to references noted below, these discussion forums were very helpful:  https://discussions.udacity.com/t/tips-for-configuring-postgresql-and-setting-up-item-catalog-project/223436/13 and https://discussions.udacity.com/t/installing-postgres/246850/9
 
+special thanks to all forum participants bus especially munir1 and swooding.....and extra special thanks to 1 on 1 coach swooding
+
 Here are the steps Taken
 1.  Created Instance AWS/Lightsail.
 
@@ -266,7 +268,10 @@ http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/managing-users.html
                 ErrorLog ${APACHE_LOG_DIR}/error.log
                 LogLevel warn
                 CustomLog ${APACHE_LOG_DIR}/access.log combined
-</VirtualHost>
+           </VirtualHost>
+
+        restart apache
+            sudo service apache2 restart
 
 
 
