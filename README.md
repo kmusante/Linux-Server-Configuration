@@ -74,12 +74,19 @@ Here are the steps Taken
             
     b.  create flask app
             move to the /var/www directory via - cd /var/www
+            
             - sudo mkdir FlaskApp
+            
             move into newly created directory via -cd FlaskApp
+            
             - sudo mkdir FlaskApp
+            
             move into newly created directory via -cd FlaskApp
+            
             make two directories, static and templates via -cd mkdir static templates
+            
             -sudo nano __init__.py then add the following file:
+            
                 from flask import Flask
                 app = Flask(__name__)
                 @app.route("/")
