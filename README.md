@@ -213,7 +213,7 @@ http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/managing-users.html
         
         Verify remote connections are blocked with command:
         
-        -sudo nano /etc/postgresql/9.1/main/pg_hba.conf
+        -sudo nano /etc/postgresql/9.3/main/pg_hba.conf
         
         -sudo pip install sqlalchemy
         
@@ -227,13 +227,50 @@ http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/managing-users.html
         
 9.  Git set up
 
-    -cd /var/www/FlaskApp
+    -cd /var/www
     
     - sudo git clone https://github.com/kmusante/salesreps2.git
+    
+    -cd salesreps2
     
     -pull up .wsgi file and update with new file from salesreps2 repository
         
         -sudo nano flaskappsalesrep.wsgi
+        
+        Add following file:
+        #!/usr/bin/python
+                import sys
+                import logging
+                logging.basicConfig(stream=sys.stderr)
+                sys.path.insert(0,"/var/www/salesreps2/")
+
+                from salesrep2 import app as application
+                application.secret_key = 'Add your secret key'
+                
+        update directory in FlaskApp.conf so salesreps2/flaskappsalesrep.wsgi is called
+        
+        -sudo nano /etc/apache2/sites-available/FlaskApp.conf
+        <VirtualHost *:80>
+                ServerName 52.43.165.216
+                ServerAdmin admin@mywebsite.com
+                WSGIScriptAlias / /var/www/salesreps2/flaskappsalesrep.wsgi
+                <Directory /var/www/salesreps2/>
+                        Order allow,deny
+                        Allow from all
+                </Directory>
+                Alias /static /var/www/salesreps2/static
+                <Directory /var/www/salesreps2/static>
+                        Order allow,deny
+                        Allow from all
+                </Directory>
+                ErrorLog ${APACHE_LOG_DIR}/error.log
+                LogLevel warn
+                CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+
+
+
+
 
     
 
