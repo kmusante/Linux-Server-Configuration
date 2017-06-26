@@ -3,6 +3,12 @@ Linux Server Configuration Project for Udacity's FSND
 
 This project is meant to satisfy the project Rubric defined here:  https://review.udacity.com/#!/rubrics/7/view
 
+pw for user grader='grader'
+
+passphrase for key 'linuxProject' = 'austerity'
+
+pw for user catalog='catalog'
+
 Here are the steps Taken
 1.  Created Instance AWS/Lightsail.
 
@@ -23,6 +29,14 @@ Here are the steps Taken
     c.  Established static IP 52.43.165.216
 
 2.  Updated Packages
-  
+    a. sudo apt-get update
+    
+    b.  sudo apt-get upgrade
+    
+    c.  sudo apt-get autoremove
+    
+    d.  sudo apt-get install finger
+    
+    
 
 
