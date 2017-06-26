@@ -73,8 +73,21 @@ Here are the steps Taken
             -sudo a2enmod wsgi 
             
     b.  create flask app
-            - sudo mkdir 
-    
+            move to the /var/www directory via - cd /var/www
+            - sudo mkdir FlaskApp
+            move into newly created directory via -cd FlaskApp
+            - sudo mkdir FlaskApp
+            move into newly created directory via -cd FlaskApp
+            make two directories, static and templates via -cd mkdir static templates
+            -sudo nano __init__.py then add the following file:
+                from flask import Flask
+                app = Flask(__name__)
+                @app.route("/")
+                def hello():
+                    return "Hello, I love Digital Ocean!!!!"
+                if __name__ == "__main__":
+                    app.run()
+
     
 
 
