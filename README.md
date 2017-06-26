@@ -186,11 +186,32 @@ http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/managing-users.html
                 Restart Apache      -sudo service apache2 restart 
                 
 7.  Update Github repository found at https://github.com/kmusante/salesreps2. Specifically update these files:
+
         -salesrep2.py:  updated line 24 to: engine = create_engine('postgresql://catalog:catalog@localhost/catalog')
         
         -salesrep2_database.py:  updated line 66 to:  engine = create_engine('postgresql://catalog:catalog@localhost/catalog')
         
         -client_secrets.json:  updated end of line to add:  "http://52.43.165.216"
+        
+8.  Install PostgreSQL
+    Notes:  https://www.digitalocean.com/community/tutorials/how-to-secure-postgresql-on-an-ubuntu-vps
+    
+        -sudo apt-get install postgresql postgresql-contrib
+        -sudo su - postgres
+        -psql (So you are effectively able to make psql commands)
+        -CREATE USER catalog WITH PASSWORD 'catalog';
+        -ALTER USER catalog CREATEDB;
+        -\c catalog
+        -REVOKE ALL ON SCHEMA public FROM public;
+        -GRANT ALL ON SCHEMA public TO catalog;
+        
+        Then issue commands \q and exit to exit postgresql
+        
+        Verify remote connections are blocked with command:
+        
+        -sudo nano /etc/postgresql/9.1/main/pg_hba.conf
+    
+        - 
     
         
 
