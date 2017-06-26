@@ -9,10 +9,15 @@ Here are the steps Taken
     a.  Selected Unbuntu as instance image
 
     b.  Configured firewall in instance
+    
         Application	Protocol	Port range	
+    
         SSH	        TCP	      22	
+        
         HTTP	      TCP	      80	
+        
         Custom	    UDP	      123	
+        
         Custom	    TCP	      2200	
   
     c.  Established static IP 52.43.165.216
