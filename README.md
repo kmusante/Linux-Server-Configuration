@@ -14,11 +14,11 @@ Here are the steps Taken
     
         SSH	        TCP	      22	
         
-        HTTP	    TCP	      80	
+        HTTP	        TCP	      80	
         
-        Custom	    UDP	      123	
+        Custom	        UDP	      123	
         
-        Custom	    TCP	      2200	
+        Custom	        TCP	      2200	
   
     c.  Established static IP 52.43.165.216
 
