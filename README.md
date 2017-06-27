@@ -69,7 +69,8 @@ http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/managing-users.html
     
     m.  Unless otherwise specified all future actions taken as user 'grader'
     
-4.  Establish Firewalls (most of this is redundant as they were set in Lightsail)
+4.  Establish Firewalls (most of this is redundant as they were set in Lightsail but needed for class)
+    NOTES: https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-ubuntu-14-04 
 
     a.  -sudo ufw default deny incoming
     
@@ -79,13 +80,17 @@ http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/managing-users.html
     
     d.  -sudo ufw allow 2200/tcp
     
-    e.  -sudo ufw allow 22/tcp
+    e.  -sudo ufw allow 2200
     
     f.  -sudo ufw allow www
     
     g.  -sudo ufw enable
     
     h.  (change port to 2200)-sudo nano /etc/ssh/sshd_config and change port to 2200
+    
+    i.  delete all access on port 22 via 'sudo ufw delete <status number>  NOTE:  status number found via sudo ufw status numbered
+    
+    j.  sudo service ssh restart (maintain one open gitbash session to ensure access not lost as safety precaution)
     
 
 5.  Install Apache2 as outlined in course material
