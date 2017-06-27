@@ -85,6 +85,8 @@ http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/managing-users.html
     
     g.  -sudo ufw enable
     
+    h.  (change port to 2200)-sudo nano /etc/ssh/sshd_config and change port to 2200
+    
 
 5.  Install Apache2 as outlined in course material
     
@@ -226,6 +228,9 @@ http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/managing-users.html
         -sudo pip install oauth2client
         
         -sudo pip install requests
+        
+        - sudo apt-get dist-upgrade (to get any upates not yet updated)
+
         
 9.  Git set up
 
